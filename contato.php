@@ -1,23 +1,30 @@
 <?php include('includes/header.php'); ?>
 <?php include('includes/menu.php'); ?>
 
-<main>
-    <h1>Fale Conosco</h1>
-    
-    <form action="contato.php" method="post">
-        <label for="nome">Nome</label><br>
-        <input type="text" name="nome" id="nome"><br><br>
+<main class="main animate-fadeIn">
+    <h2>Fale Conosco</h2>
+    <form action="contato.php" method="post" class="contact-form">
+        <div class="form-group">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" name="nome" id="nome" class="form-control">
+        </div>
 
-        <label for="telefone">Telefone</label><br>
-        <input type="text" name="telefone" id="telefone"><br><br>
+        <div class="form-group">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input type="text" name="telefone" id="telefone" class="form-control" oninput="mascaraTelefone(this)">
+        </div>
 
-        <label for="data">Data do Atendimento</label><br>
-        <input type="text" name="data" id="data"><br><br>
+        <div class="form-group">
+            <label for="data" class="form-label">Data</label>
+            <input type="text" name="data" id="data" class="form-control" oninput="mascaraData(this)">
+        </div>
 
-        <label for="mensagem">Mensagem</label><br>
-        <textarea name="mensagem" id="mensagem" rows="4" cols="30"></textarea><br><br>
+        <div class="form-group">
+            <label for="mensagem" class="form-label">Mensagem</label>
+            <textarea name="mensagem" id="mensagem" class="form-control" rows="4"></textarea>
+        </div>
 
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar" class="btn btn-block">
     </form>
 
     <?php
@@ -28,9 +35,9 @@
         $mensagem = trim($_POST["mensagem"]);
 
         if ($nome == "" || $telefone == "" || $data == "" || $mensagem == "") {
-            echo "<p style='color:red;'>Por favor, preencha todos os campos.</p>";
+            echo "<p style='color:red; margin-top:20px;'>Por favor, preencha todos os campos.</p>";
         } else {
-            echo "<p style='color:green;'>Mensagem enviada com sucesso!</p>";
+            echo "<p style='color:green; margin-top:20px;'>Mensagem enviada com sucesso!</p>";
         }
     }
     ?>
